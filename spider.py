@@ -72,7 +72,7 @@ def parse_detail():
 
 
 def save_data(data):
-    name = data.get('name')
+    name = data.get('name').replace(":","_") # character ':' in path name causes error in file saving
     data_path = f'{RESULTS_DIR}/{name}.json'
     json.dump(data, open(data_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
 
